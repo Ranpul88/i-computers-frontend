@@ -3,9 +3,9 @@ import { LuClipboardList, LuUsers } from "react-icons/lu";
 import { LuBoxes } from "react-icons/lu";
 import { MdOutlineRateReview } from "react-icons/md";
 import AdminProductsPage from "./admin/adminProductsPage";
-import AdminAddProductPage from "./admin/adminAddProductPage";
+import AdminAddProductsPage from "./admin/adminAddProductsPage";
 
-export default function AdminPage2() {
+export default function AdminPage() {
   return (
     <div className="w-full h-full flex bg-accent">
 
@@ -34,7 +34,7 @@ export default function AdminPage2() {
           <Routes>
             <Route path="/" element={<h1>Orders</h1>} />
             <Route path="/products" element={<AdminProductsPage />} />
-            <Route path="/add-products" element={<AdminAddProductPage />} />
+            <Route path="/add-products" element={<AdminAddProductsPage />} />
             <Route path="/users" element={<h1>Users</h1>} />
             <Route path="/reviews" element={<h1>Reviews</h1>} />
           </Routes>
