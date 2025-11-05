@@ -10,9 +10,7 @@ export default function LoginPage(){
     const navigate = useNavigate()
 
     async function login(){
-        console.log("lofin button")
-        console.log("email: ", email)
-        console.log("password: ", password)
+        console.log("login button")
 
         try {
             const res = await axios.post(import.meta.env.VITE_BACKEND_URL + "/users/login", {
@@ -45,7 +43,7 @@ export default function LoginPage(){
     return(
         <div className="w-full h-screen bg-[url('bg.jpg')] bg-center bg-cover bg-no-repeat flex">
            
-            <div className="w-[50%] h-full flex just items-center flex-col p-[50px]">
+            <div className="w-[50%] h-full flex justify-center items-center flex-col p-[50px]">
                 
                 <img src="/logo.png" alt="logo" className="w-[200px] h-[200px] mb-[20px] object-cover" />
                 
@@ -64,16 +62,16 @@ export default function LoginPage(){
                     <input onChange={(e)=>{
                         setEmail(e.target.value)
                     }} 
-                    type="email" placeholder="Your email" className="w-full h-[50px] mb-[20px] rounded-lg border border-accent border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
+                    type="email" placeholder="Your email" className="w-full h-[50px] mb-[20px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
                    
                     <input onChange={(e)=>{
                         setPassword(e.target.value)
                     }} 
-                    type="password" placeholder="Your pasword" className="w-full h-[50px] rounded-lg border border-accent border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
+                    type="password" placeholder="Your pasword" className="w-full h-[50px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
                     
                     <p className="text-white w-full text-right mb-[20px]">Forgot your password? <Link to="/forgot-password" className="text-gold italic">Reset it here</Link></p>
                     
-                    <button onClick={login} className="w-full h-[50px] bg-accent text-secondary text-white font-bold text-[20px] rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-accent">Login</button>
+                    <button onClick={login} className="w-full h-[50px] bg-accent text-white font-bold text-[20px] rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-white cursor-pointer">Login</button>
                     
                     <p className="text-white">Don't have an account? <Link to="/register" className="text-gold italic">Register here</Link></p>
                 
