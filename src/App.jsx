@@ -14,7 +14,7 @@ function App() {
 
       <Toaster position='top-right'/>
 
-      <div className='w-full h-screen bg-[#FFF6E8]'>
+      <div className='w-full h-screen bg-primary'>
         <Routes>
           <Route path='/*' element={<HomePage/>}/>
           <Route path='/login' element={<LoginPage/>}/>

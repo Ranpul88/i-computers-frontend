@@ -10,6 +10,9 @@ export default function Header() {
                 <Link to="/about">About</Link>
                 <Link to="/contacts">Contacts</Link>
             </div>
+            <Link to="/cart" className="w-[100px] h-full flex justify-center items-center">
+
+            </Link>
 
         </header>       
     )

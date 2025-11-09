@@ -1,17 +1,24 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { BiPlus } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../src/components/loader";
 import ProductDeleteButton from "../../src/components/productDeleteButton";
 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState([])
   const[loaded, setLoaded] = useState(false)
+  const navigate = useNavigate()
+
+  const token = localStorage.getItem("token")
 
   useEffect(() => {
     if(!loaded){
-      axios.get(import.meta.env.VITE_BACKEND_URL + "/products")
+      axios.get(import.meta.env.VITE_BACKEND_URL + "/products", {
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    })
       .then((res) => {
         console.log(res.data)
         setProducts(res.data)
@@ -28,21 +35,21 @@ export default function AdminProductsPage() {
         {loaded ? <table className="w-full border-collapse text-sm">
           <thead className="bg-accent text-white sticky top-0">
             <tr>
-              <th className="py-3 px-4 text-left">Image</th>
-              <th className="py-3 px-4 text-left">Product ID</th>
-              <th className="py-3 px-4 text-left">Name</th>
-              <th className="py-3 px-4 text-left">Price</th>
-              <th className="py-3 px-4 text-left">Labelled Price</th>
-              <th className="py-3 px-4 text-left">Category</th>
-              <th className="py-3 px-4 text-left">Brand</th>
-              <th className="py-3 px-4 text-left">Model</th>
-              <th className="py-3 px-4 text-left">Stock</th>
-              <th className="py-3 px-4 text-left">Availability</th>
+              <th className="py-3 px-4 text-center">Image</th>
+              <th className="py-3 px-4 text-center">Product ID</th>
+              <th className="py-3 px-4 text-center">Name</th>
+              <th className="py-3 px-4 text-center">Price</th>
+              <th className="py-3 px-4 text-center">Labelled Price</th>
+              <th className="py-3 px-4 text-center">Category</th>
+              <th className="py-3 px-4 text-center">Brand</th>
+              <th className="py-3 px-4 text-center">Model</th>
+              <th className="py-3 px-4 text-center">Stock</th>
+              <th className="py-3 px-4 text-center">Availability</th>
               <th className="py-3 px-4 text-center">Action</th>
             </tr>
           </thead>
 
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-gray-200 text-center">
             {
               products.map((item, index) => (
                 <tr
@@ -61,11 +68,18 @@ export default function AdminProductsPage() {
                   <td className="py-3 px-4">{item.model}</td>
                   <td className="py-3 px-4">{item.stock}</td>
                   <td className="py-3 px-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${item.isAvailable ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>
-                      {item.isAvailable ? "Available" : "Out of Stock"}
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium flex justify-center ${item.isAvailable ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>
+                      {item.isAvailable ? "Available" : "Unavailable"}
                     </span>
                   </td>
-                  <td className="py-3 px-4">
+                  <td className="py-3 px-4 flex gap-2">
+                    {/* <Link to="/admin/update-products" state={item}  className="w[70px] px-3 py-2 rounded-md bg-accent/20 text-accent text-center" >Edit</Link> */}
+
+                    <button className="w[70px] px-3 py-2 rounded-md bg-accent/20 text-accent text-center hover:bg-accent/30" onClick={()=>{
+                      navigate("/admin/update-product", {state: item})
+                    }}>
+                        Edit
+                    </button>
                     <ProductDeleteButton productID = {item.productID} reload = {()=>{setLoaded(false)}} />
                   </td>
                 </tr>
