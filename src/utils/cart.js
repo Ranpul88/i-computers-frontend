@@ -1,24 +1,4 @@
-import { lazy } from "react"
 import toast from "react-hot-toast"
-
-const sampleCart = [
-    {
-        productID: "123456",
-        name: "Sample Product 1",
-        price: 29.99,
-        labelledPrice: 39.99,
-        quantity: 2,
-        image: "https://example.com/image1.jpg"
-    },
-    {
-        productID: "789012",
-        name: "Sample Product 2",
-        price: 49.99,
-        labelledPrice: 59.99,
-        quantity: 1,
-        image: "https://example.com/image2.jpg"
-    }
-]
 
 export function getCart(){
     let cartString = localStorage.getItem("cart")
@@ -32,14 +12,13 @@ export function getCart(){
     }
 }
 
-
-
 export function addToCart(product, quantity){
     const cart = getCart()
 
-    const index = cart.findIndex((item=>{
-        return item.productID == product.productID
-    }))
+    const index = cart.findIndex((items)=>{
+        return items.productID == product.productID
+    })
+
     if(index == -1){
         cart.push({
             productID: product.productID,
@@ -50,15 +29,17 @@ export function addToCart(product, quantity){
             image: product.images[0]
         })
 
-        toast.success(`${product.name}Product added to cart.`)
+        toast.success(`${product.name} added to cart.`)
 
     }else{
         const newQuantity = cart[index].quantity + quantity
         
-        if(newQuantity <= 0){
+        if(newQuantity<=0){
             cart.splice(index, 1)
+            toast.success(`${product.name} removed from cart.`)
         }else{
             cart[index].quantity = newQuantity
+            toast.success(`Updated ${product.name} qunatity to ${newQuantity}`)
         }
     }
 
@@ -68,4 +49,16 @@ export function addToCart(product, quantity){
 
 export function emptyCart(){
     localStorage.setItem("cart", "[]")
+}
+
+export function getCartTotal(){
+    let total = 0
+    
+    const cart = getCart()
+
+    cart.forEach((item)=>{
+        total += item.price * item.quantity
+    })
+
+    return total
 }

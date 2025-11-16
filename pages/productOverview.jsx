@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 import Loader from "../src/components/loader"
 import ImageSlidder from "../src/components/imageSlidder"
 import { CgChevronRight } from "react-icons/cg"
+import { addToCart, emptyCart } from "../src/utils/cart"
 
 export default function ProductOverview() {
 
@@ -64,8 +65,12 @@ export default function ProductOverview() {
                         <h2 className="text-accent font-semibold text-3xl">LKR. {product.price.toFixed(2)}</h2>
                     </div>
                     <div className="w-full  flex flex-row gap-4 mt-4">
-                        <button className="bg-accent text-white px-6 py-3 rounded-md hover:bg-accent/90 transition">Add to Cart</button>
-                        <button className="border-2 border-accent text-accent px-6 py-3 rounded-md hover:bg-accent hover:text-white">Buy Now</button>
+                        <button onClick={()=>{
+                            addToCart(product, 1)
+                        }} className="bg-accent text-white px-6 py-3 rounded-md hover:bg-accent/90 transition">Add to Cart</button>
+                        <button onClick={()=>{
+                            emptyCart()
+                        }} className="border-2 border-accent text-accent px-6 py-3 rounded-md hover:bg-accent hover:text-white">Buy Now</button>
                     </div>
                 </div>
             </div>
