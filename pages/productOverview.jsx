@@ -1,14 +1,15 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Loader from "../src/components/loader"
 import ImageSlidder from "../src/components/imageSlidder"
 import { CgChevronRight } from "react-icons/cg"
-import { addToCart, emptyCart } from "../src/utils/cart"
+import { addToCart } from "../src/utils/cart"
 
 export default function ProductOverview() {
 
+    const navigate = useNavigate();
     const params = useParams()
     const [product, setProduct] = useState()
     const [status, setStatus] = useState("loading")
@@ -69,7 +70,14 @@ export default function ProductOverview() {
                             addToCart(product, 1)
                         }} className="bg-accent text-white px-6 py-3 rounded-md hover:bg-accent/90 transition">Add to Cart</button>
                         <button onClick={()=>{
-                            emptyCart()
+                            navigate("/checkout", {state: [{
+                                productID: product.productID,
+                                name: product.name,
+                                price: product.price,
+                                labelledPrice: product.labelledPrice,
+                                quantity: 1,
+                                image: product.images[0]
+                            }]})
                         }} className="border-2 border-accent text-accent px-6 py-3 rounded-md hover:bg-accent hover:text-white">Buy Now</button>
                     </div>
                 </div>
