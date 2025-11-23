@@ -13,7 +13,7 @@ export default function CartPage() {
         {
             cart.map((item)=>{
                 return(
-                    <div key={item.productID} className='w-[50%] h-[130px] rounded-xl overflow-hidden shadow-2xl my-1 flex justify-between'>
+                    <div key={item.productID} className='w-full lg:w-[50%] h-[130px] rounded-xl overflow-hidden shadow-2xl my-1 flex justify-between'>
                         <img src={item.image} className='h-full aspect-square object-cover' />
                         <div className='w-[400px] flex flex-col justify-center pl-4'>
                             <h1 className='text-2xl font-semibold relative hover:[&_.tooltip]:opacity-100'><span className='tooltip italic text-sm absolute bottom-[-25px] bg-accent text-white px-2 rounded-xl opacity-0'>{item.name}</span>

@@ -20,7 +20,7 @@ export default function ProductCard(props) {
                     LKR. {product.labelledPrice.toFixed(2)}
                   </h2>
                 }
-                <h2 className="text-accent font-semibold text-2xl">{product.price.toFixed(2)}</h2>
+                <h2 className="text-accent font-semibold text-2xl">LKR. {product.price.toFixed(2)}</h2>
 
             </div>
         </div>
