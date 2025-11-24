@@ -7,9 +7,9 @@ export default function Header() {
     const [sideBarOpen, setSideBarOpen] = useState(false)
 
     return(
-        <header className="w-full h-[100px] bg-accent flex relative">
-            <LuListCollapse onClick={()=>{setSideBarOpen(true)}} className="text-white my-auto text-2xl ml-6 lg:hidden"/>
-            <img src="/logo.png" alt="logo" className="h-full" />
+        <header className="w-full h-[100px] bg-accent flex items-center relative">
+            <LuListCollapse onClick={()=>{setSideBarOpen(true)}} className="text-white my-auto text-2xl mx-6 lg:hidden"/>
+            <img src="/logo.png" alt="logo" className="h-[80px] lg:h-full" />
             <div className="w-full h-full hidden lg:flex text-xl text-primary justify-center items-center gap-[30px]">
                 <Link to="/">Home</Link>
                 <Link to="/products">products</Link>
@@ -23,7 +23,7 @@ export default function Header() {
                 <div className="w-[250px] h-screen flex flex-col relative ">
                     <div className="w-full h-full absolute bg-white left-[-250px] transform-flat translate-x-[250px] transition-transform duration-1000 flex flex-col">
                         <div className="h-[100px] w-full bg-accent flex justify-center items-center">
-                            <img src="logo.png" alt="logo" className="h-full " />
+                            <img src="/logo.png" alt="logo" className="h-[80px]" />
                             <LuListCollapse onClick={()=>{setSideBarOpen(false)}} className="text-white my-auto text-2xl ml-6 rotate-180"/>
                         </div>
                         <div className="w-full h-full flex flex-col text-xl text-secondary justify-start items-start gap-3">

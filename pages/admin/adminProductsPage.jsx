@@ -20,7 +20,6 @@ export default function AdminProductsPage() {
       }
     })
       .then((res) => {
-        console.log(res.data)
         setProducts(res.data)
         setLoaded(true)
       })

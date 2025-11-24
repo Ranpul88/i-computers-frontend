@@ -32,8 +32,6 @@ export default function AdminAddProductsPage() {
       return
     }
 
-    console.log(files)
-
     const imagesPromises = []
 
     for(let i = 0; i < files.length; i++){

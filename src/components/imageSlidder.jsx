@@ -7,7 +7,7 @@ export default function ImageSlidder(props) {
 
   return (
     <div className='w-full flex flex-col items-center'>
-        <img src={images[activeIndex]} className='w-[60%] h-[500px] object-contain' />
+        <img src={images[activeIndex]} className='w-[60%] h-[300px] lg:h-[500px] object-contain' />
         <div className='w-full h-[100px] flex flex-row justify-center items-center gap-4'>
             {
                 images.map((image, index)=>{
