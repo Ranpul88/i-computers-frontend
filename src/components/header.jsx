@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BiShoppingBag } from "react-icons/bi";
 import { LuListCollapse } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import UserData from "./userData";
 
 export default function Header() {
     const [sideBarOpen, setSideBarOpen] = useState(false)
@@ -9,12 +10,15 @@ export default function Header() {
     return(
         <header className="w-full h-[100px] bg-accent flex items-center relative">
             <LuListCollapse onClick={()=>{setSideBarOpen(true)}} className="text-white my-auto text-2xl mx-6 lg:hidden"/>
-            <img src="/logo.png" alt="logo" className="h-[80px] lg:h-full" />
+            <img src="/logo.png" alt="logo" className="h-[65px] lg:h-full" />
             <div className="w-full h-full hidden lg:flex text-xl text-primary justify-center items-center gap-[30px]">
                 <Link to="/">Home</Link>
                 <Link to="/products">products</Link>
                 <Link to="/about">About</Link>
                 <Link to="/contacts">Contacts</Link>
+            </div>
+            <div className="hidden absolute right-24 top-0 h-full lg:flex items-center">
+                <UserData />
             </div>
             <Link to="/cart" className="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-2xl">
                 <BiShoppingBag />
@@ -26,7 +30,10 @@ export default function Header() {
                             <img src="/logo.png" alt="logo" className="h-[80px]" />
                             <LuListCollapse onClick={()=>{setSideBarOpen(false)}} className="text-white my-auto text-2xl ml-6 rotate-180"/>
                         </div>
-                        <div className="w-full h-full flex flex-col text-xl text-secondary justify-start items-start gap-3">
+                        <div className="w-full flex bg-accent p-6">
+                            <UserData />
+                        </div>
+                        <div className="w-full h-full flex flex-col text-xl text-secondary pl-6 pt-2 gap-3">
                             <a href="/"  onClick={()=>{setSideBarOpen(false)}}>Home</a>
                             <a href="/products"  onClick={()=>{setSideBarOpen(false)}}>Products</a>
                             <a href="/about"  onClick={()=>{setSideBarOpen(false)}}>About</a>
