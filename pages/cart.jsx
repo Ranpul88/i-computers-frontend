@@ -15,7 +15,7 @@ export default function CartPage() {
                     <div key={item.productID} className='w-full relative lg:w-[50%] lg:h-[130px] rounded-xl overflow-hidden shadow-2xl pt-[10px] my-1 flex justify-between'>
                         <h1 className='lg:hidden w-full h-[22px] overflow-hidden absolute top-0'>{item.name}</h1>
                         <div className='h-full flex flex-col mt-4'>
-                            <img src={item.image} className='h-[100px] lg:h-full aspect-square object-cover' />
+                            <img src={item.image} className='h-[100px] lg:h-[110px] aspect-square object-cover' />
                             {
                                 item.labelledPrice > item.price &&
                                 <h2 className='lg:hidden text-secondary/80 line-through decoration-gold/70 decoration-2 mr-2 text-md pl-2 mt-2'>LKR. {item.labelledPrice.toFixed(2)}</h2>

@@ -22,8 +22,6 @@ export default function AdminAddProductsPage() {
   const navigate = useNavigate()
 
   async function addProduct(){
-
-    
     const token = localStorage.getItem("token")
     
     if(token == null){
@@ -113,7 +111,7 @@ export default function AdminAddProductsPage() {
 
             <div className="my-[10px] w-full">
               <label>Description</label>
-              <textarea type="text" value={description} onChange={(e)=>{setDescription(e.target.value)}} className="w-full h-[40px] rounded-2xl border border-accent focus:outline-none focus:ring-2 focus:ring-accent shadow-2xl px-[10px] py-[10px]" />
+              <textarea type="text" value={description} onChange={(e)=>{setDescription(e.target.value)}} className="w-full h-[80px] rounded-2xl border border-accent focus:outline-none focus:ring-2 focus:ring-accent shadow-2xl px-[10px] py-[10px]" />
             </div>
 
             <div className="my-[10px] w-[40%]">
@@ -167,7 +165,7 @@ export default function AdminAddProductsPage() {
               <input type="number" value={stock} onChange={(e)=>{setStock(e.target.value)}} className="w-full h-[40px] rounded-2xl border border-accent focus:outline-none focus:ring-2 focus:ring-accent shadow-2xl px-[10px]" />
             </div>
 
-            <div className="my-[10px] w-[30%] flex flex-col">
+            <div className="my-[10px] w-[40%] flex flex-col">
               <label>Availability</label>
               <select value={isAvailable} onChange={(e)=>{setIsAvailable(e.target.value)}} className="w-full h-[40px] rounded-2xl border border-accent focus:outline-none focus:ring-2 focus:ring-accent shadow-2xl pl-[10px]">
                 <option value={true}>Yes</option>

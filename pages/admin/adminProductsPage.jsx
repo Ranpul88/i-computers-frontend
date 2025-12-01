@@ -89,7 +89,7 @@ export default function AdminProductsPage() {
       </div>
 
       <Link
-        to="/admin/add-products"
+        to="/admin/add-product"
         className="fixed right-8 bottom-8 w-[60px] h-[60px] flex justify-center items-center text-5xl bg-accent text-white rounded-full shadow-lg hover:bg-gold hover:shadow-xl transition-all duration-300"
       >
         <BiPlus />

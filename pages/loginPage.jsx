@@ -33,7 +33,7 @@ export default function LoginPage(){
                 .catch((err)=>{
                     console.log(err)
                 })
-                setIsLoading(false)
+            setIsLoading(false)
         },
         onError: ()=>{toast.error("Google Login Failed!")},
         onNonOAuthError: ()=>{toast.error("Google Login Failed!")}
@@ -43,7 +43,7 @@ export default function LoginPage(){
         setIsLoading(true)
 
         try {
-            await axios.post(import.meta.env.VITE_BACKEND_URL + "/users/login", {
+            const res = await axios.post(import.meta.env.VITE_BACKEND_URL + "/users/login", {
             email: email,
             password: password
         })

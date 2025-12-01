@@ -30,7 +30,7 @@ export default function UserData(){
     return(
         <>
             {user ? <div className="lg:w-[60px] flex justify-center flex-row text-white">
-                <img src={user.image} className="w-[45px] h-[45px] lg:w-[50px] lg:h-[50px] rounded-full" />
+                <img src={user.image} referrerPolicy="no-referrer" className="w-[45px] h-[45px] lg:w-[50px] lg:h-[50px] rounded-full" />
                 <select onChange={
                     (e)=>{
                         if(e.target.value == "logout"){
