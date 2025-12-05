@@ -9,12 +9,10 @@ import { Toaster } from 'react-hot-toast'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import ForgotPasswordPage from '../pages/forgotPasswordPage'
 
-
-// 908601335498-afi042el2joriqbm3b6663cmbpcouk58.apps.googleusercontent.com
 function App() {
 
   return (
-    <GoogleOAuthProvider clientId='908601335498-afi042el2joriqbm3b6663cmbpcouk58.apps.googleusercontent.com'>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
       <BrowserRouter>
 
         <Toaster position='top-right'/>
