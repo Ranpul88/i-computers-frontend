@@ -17,7 +17,7 @@ export default function Header() {
                 <Link to="/" onClick={()=>{setPage("home")}} className="flex flex-col items-center gap-1 pt-2">Home<FaChevronUp className={`text-sm transition duration-500 ${page == "home" ? "opacity-100" : "opacity-0"}`} /></Link>
                 <Link to="/products" onClick={()=>{setPage("products")}} className="flex flex-col items-center gap-1 pt-2">products<FaChevronUp className={`text-sm transition duration-500 ${page == "products" ? "opacity-100" : "opacity-0"}`} /></Link>
                 <Link to="/about" onClick={()=>{setPage("about")}} className="flex flex-col items-center gap-1 pt-2">About<FaChevronUp className={`text-sm transition duration-500 ${page == "about" ? "opacity-100" : "opacity-0"}`} /></Link>
-                <Link to="/contacts" onClick={()=>{setPage("contacts")}} className="flex flex-col items-center gap-1 pt-2">Contacts<FaChevronUp className={`text-sm transition duration-500 ${page == "contacts" ? "opacity-100" : "opacity-0"}`} /></Link>
+                <Link to="/contact" onClick={()=>{setPage("contact")}} className="flex flex-col items-center gap-1 pt-2">Contact<FaChevronUp className={`text-sm transition duration-500 ${page == "contact" ? "opacity-100" : "opacity-0"}`} /></Link>
             </div>
             <div className="hidden absolute right-24 top-0 h-full lg:flex items-center">
                 <UserData />
