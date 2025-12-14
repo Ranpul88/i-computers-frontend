@@ -18,11 +18,7 @@ export default function ProductOverview() {
 
     useEffect(()=>{
         if(status == "loading"){
-            axios.get(import.meta.env.VITE_BACKEND_URL + "/products/" + params.productID, {
-                headers: {
-                    Authorization: "Bearer " + token
-                }
-            })
+            axios.get(import.meta.env.VITE_BACKEND_URL + "/products/" + params.productID,)
                 .then((response)=>{
                     setProduct(response.data)
                     setStatus("success")
