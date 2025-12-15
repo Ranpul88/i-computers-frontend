@@ -50,7 +50,7 @@ export default function Header() {
                     <div className="w-full flex bg-accent p-6">
                         <UserData />
                     </div>
-                <div className="w-full h-full flex flex-col text-xl text-secondary pl-6 pt-2 gap-3">
+                <div className="w-full h-full flex flex-col text-xl text-secondary pl-6 pt-4 gap-3">
                     <Link
                     to="/"
                     className="flex flex-row items-center"
