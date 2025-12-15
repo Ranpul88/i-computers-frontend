@@ -64,7 +64,7 @@ export default function LoginPage(){
     }
 
     return(
-        <div className="w-full h-screen bg-[url('bg.jpg')] bg-center bg-cover bg-no-repeat flex">
+        <div className="w-full h-screen bg-[url('/bg.jpg')] bg-center bg-cover bg-no-repeat flex">
            
             <div className="hidden w-[50%] h-full lg:flex justify-center items-center flex-col p-[50px]">
                 
