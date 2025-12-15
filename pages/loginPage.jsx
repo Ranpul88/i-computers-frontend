@@ -77,7 +77,7 @@ export default function LoginPage(){
                 
                 <h1 className="text-[50px] mb-[10px] text-gold text-shadow-accent text-shadow-2xs text-center font-bold">Plug In. Power Up. Play Hard</h1>
                 
-                <p className="text-[18px] text-white italic text-center">Your Ultimate Destination For Gaming Gear</p>
+                <p className="text-[30px] text-white italic text-center">Your Ultimate Destination For Gaming Gear</p>
             
             </div>
 
