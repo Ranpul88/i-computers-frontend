@@ -6,6 +6,7 @@ import Loader from "../src/components/loader"
 import ImageSlidder from "../src/components/imageSlidder"
 import { CgChevronRight } from "react-icons/cg"
 import { addToCart } from "../src/utils/cart"
+import RatingsAndReviews from "../src/components/ratingsAndReviews"
 
 export default function ProductOverview() {
 
@@ -13,8 +14,6 @@ export default function ProductOverview() {
     const params = useParams()
     const [product, setProduct] = useState()
     const [status, setStatus] = useState("loading")
-
-    const token = localStorage.getItem("token")
 
     useEffect(()=>{
         if(status == "loading"){
@@ -80,6 +79,7 @@ export default function ProductOverview() {
                             }]})
                         }} className="border-2 border-accent text-accent px-6 py-3 rounded-md hover:bg-accent hover:text-white">Buy Now</button>
                     </div>
+                    <RatingsAndReviews productName={product.name} productID={product.productID} ratings={product.ratings} />
                 </div>
             </div>
         }
