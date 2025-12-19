@@ -82,7 +82,7 @@ export default function ViewOrderInfo(props) {
               <select value={status} onChange={(e=>{setStatus(e.target.value)})} className='ml-4 px-2 py-1 border border-secondary/20 outliine-none rounded-lg text-sm text-secondary'>
                 <option value="pending" className='bg-transparent border-1 border-accent rounded-full'>Pending</option>
                 <option value="processing" className='bg-transparent border-1 border-accent rounded-full'>Processing</option>
-                <option value="complete" className='bg-transparent border-1 border-accent rounded-full'>Complete</option>
+                <option value="completed" className='bg-transparent border-1 border-accent rounded-full'>Complete</option>
                 <option value="canceled" className='bg-transparent border-1 border-accent rounded-full'>Cancel</option>
               </select>
             </div>

@@ -47,9 +47,9 @@ export default function ProductOverview() {
             <div className="w-full h-[calc(100vh-100px)] flex flex-col lg:flex-row">
                 <h1 className="lg:hidden text-3xl lg:text-4xl font-semibold mt-2 ml-2 sticky top-0 bg-white">{product.name}</h1>
                 <div className="lg:w-1/2 lg:h-full flex justify-center items-center">
-                    <ImageSlidder images={product.images}  />
+                    <ImageSlidder images={product.images} />
                 </div>
-                <div className="lg:w-1/2 h-full p-10 flex flex-col gap-6">
+                <div className="lg:w-1/2 h-full p-10 flex flex-col gap-4">
                     <h1 className="hidden lg:block text-4xl font-semibold">{product.name}</h1>
                     <h2 className="text-lg text-secondary/80">{product.productID}</h2>
                     <h3 className="text-lg text-secondary/80 flex items-center"><CgChevronRight /> {product.category}</h3>
@@ -67,7 +67,7 @@ export default function ProductOverview() {
                     <div className="w-full  flex flex-row gap-4 mt-4">
                         <button onClick={()=>{
                             addToCart(product, 1)
-                        }} className="bg-accent text-white px-6 py-3 rounded-md hover:bg-accent/90 transition">Add to Cart</button>
+                        }} className="bg-accent text-white px-6 py-3 rounded-md hover:bg-accent/90 transition cursor-pointer">Add to Cart</button>
                         <button onClick={()=>{
                             navigate("/checkout", {state: [{
                                 productID: product.productID,
@@ -77,7 +77,7 @@ export default function ProductOverview() {
                                 quantity: 1,
                                 image: product.images[0]
                             }]})
-                        }} className="border-2 border-accent text-accent px-6 py-3 rounded-md hover:bg-accent hover:text-white">Buy Now</button>
+                        }} className="border-2 border-accent text-accent px-6 py-3 rounded-md hover:bg-accent hover:text-white cursor-pointer">Buy Now</button>
                     </div>
                     <RatingsAndReviews productName={product.name} productID={product.productID} ratings={product.ratings} />
                 </div>
