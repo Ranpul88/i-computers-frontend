@@ -173,8 +173,8 @@ export default function AdminAddProductsPage() {
               </select>
             </div>
 
-            <Link to="/admin/products" className="w-[49%] text-accent font-bold rounded-2xl flex justify-center  items-center hover:bg-red-700 hover:text-white border-[2px] mt-[20px]">Cancel</Link>
-            <button onClick={addProduct} className="w-[49%] h-[50px] bg-accent text-white font-bold rounded-2xl hover:bg-transparent hover:text-accent border border-accent mt-[20px]">Add Product</button>
+            <Link to="/admin/products" className="w-[49%] text-accent font-bold rounded-2xl flex justify-center  items-center hover:bg-red-700 hover:text-white border-[2px] mt-[20px] cursor-pointer">Cancel</Link>
+            <button onClick={addProduct} className="w-[49%] h-[50px] bg-accent text-white font-bold rounded-2xl hover:bg-transparent hover:text-accent border border-accent mt-[20px] cursor-pointer">Add Product</button>
 
           </div>
         </div>
