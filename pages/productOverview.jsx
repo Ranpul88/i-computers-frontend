@@ -30,7 +30,7 @@ export default function ProductOverview() {
                 }
             )
         }
-    }, [])
+    }, [status])
 
   return (
     <>
@@ -79,7 +79,7 @@ export default function ProductOverview() {
                             }]})
                         }} className="border-2 border-accent text-accent px-6 py-3 rounded-md hover:bg-accent hover:text-white cursor-pointer">Buy Now</button>
                     </div>
-                    <RatingsAndReviews productName={product.name} productID={product.productID} ratings={product.ratings} />
+                    <RatingsAndReviews productName={product.name} productID={product.productID} ratings={product.ratings} reload={()=>{setStatus("loading")}} />
                 </div>
             </div>
         }

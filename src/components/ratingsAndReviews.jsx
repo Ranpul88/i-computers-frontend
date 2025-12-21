@@ -5,12 +5,13 @@ import toast from 'react-hot-toast'
 import Loader from './loader'
 
 export default function RatingsAndReviews(props) {
-    const { productName, productID, ratings } = props
+    const { productName, productID, ratings, reload } = props
 
     const [reviews, setReviews] = useState()
     const [loading, setLoading] = useState(true)
     const [loggedIn, setLoggedIn] = useState(false)
     const [reviewFormVisible, setReviewFormVisible] = useState(false)
+    const [showAllReviews, setShowAllReviews] = useState(false)
     const [rating, setRating] = useState(0)
     const [name, setName] = useState("")
     const [message, setMessage] = useState("")
@@ -42,23 +43,43 @@ export default function RatingsAndReviews(props) {
             toast.error("Please select a rating.")
             return
         }
+
+        if(name == "" || name.trim() == ""){
+            toast.error("Please enter your name.")
+            return
+        }
+
         try {
             await axios.post(import.meta.env.VITE_BACKEND_URL + "/reviews/" + productID, {
             stars: rating,
             name: name,
             message: message
+        }, {
+            headers: {
+                Authorization: "Bearer " + token
+            }
         })
-            await axios.put(import.meta.env.VITE_BACKEND_URL + "/products/ratings/" + productID,{stars: rating})
+            await axios.put(import.meta.env.VITE_BACKEND_URL + "/products/ratings/" + productID,{stars: rating}, {
+                headers: {
+                    Authorization: "Bearer " + token
+                }
+            })
+            toast.success("Review submitted successfully.")
+            setReviewFormVisible(false)
+            setRating(0)
+            setHover(0)
+            setName("")
+            setMessage("")
+            reload()
+            
+            return
         }catch(error){
             toast.error("Could not submit review. Please check whether you have purchased this product.")
             console.log("Error submitting review: ")
             console.log(error)
             return
         }
-        
     }
-    console.log(hover)
-
   return (
     <div className='w-full bg-gray-200 p-6 rounded-xl '>
         <h1 className='w-full lg:text-[20px] font-bold'>Rating and reviews of {productName}</h1>
@@ -96,8 +117,8 @@ export default function RatingsAndReviews(props) {
             {loading ? <Loader /> :<div className='w-full'>
                 <h1 className='text-[30px]'>Reviews</h1>
                     {
-                        reviews.length == 0 ? <h1 className='text-lg mt-4'>No Reviews Yet.</h1> :
-                        (reviews.map((item, index)=>{
+                        reviews.length == 0 ? <h1 className='text-lg my-4'>No Reviews Yet.</h1> :
+                        (reviews.slice(0,3).map((item, index)=>{
                             return (
                                 <div key={index} className='w-full flex flex-col border-1 rounded-2xl p-4 gap-1 my-4'>
                                     <div className='w-full flex items-center '>
@@ -107,13 +128,18 @@ export default function RatingsAndReviews(props) {
                                         {item.stars >= 3 ? <FaStar className='text-gold' /> : <FaRegStar className='text-gold' />}
                                         {item.stars >= 4 ? <FaStar className='text-gold' /> : <FaRegStar className='text-gold' />}
                                         {item.stars >= 5 ? <FaStar className='text-gold' /> : <FaRegStar className='text-gold' />}
+                                        <p className='w-full text-right'>{item.date.split('T')[0]}</p>
                                     </div>
                                     <h1 className='w-full text-lg'>{item.message}</h1>
                                 </div>
                             )
                         }))
                     }
-                    { loggedIn && <button onClick={()=>{setReviewFormVisible(true)}} className='p-2 bg-accent text-white rounded-md cursor-pointer hover:bg-accent/90'>Submit Review</button>}
+                    <div className='w-full flex justify-between'>
+                        { loggedIn && <button onClick={()=>{setReviewFormVisible(true)}} className='p-2 bg-accent text-white rounded-md cursor-pointer hover:bg-accent/90'>Submit Review</button>}
+                        {reviews.length > 0 && <button onClick={()=>{setShowAllReviews(true)}} className='text-secondary text-right text-lg cursor-pointer italic hover:text-gold'>All Reviews...</button>}
+                    </div>
+                    
             </div>}
         </div>
         { reviewFormVisible && <div className='w-full h-full fixed top-0 right-0 bg-black/60 flex items-center justify-center'>
@@ -129,7 +155,7 @@ export default function RatingsAndReviews(props) {
                         {rating >= 4 || hover >= 4 ? <FaStar onClick={()=>{setRating(4)}} onMouseEnter={()=>{setHover(4)}} onMouseLeave={() => setHover(0)} className='cursor-pointer text-gold' /> : <FaRegStar onClick={()=>{setRating(4)}} onMouseEnter={()=>{setHover(4)}} className='cursor-pointer text-gold' />}
                         {rating >= 5 || hover >= 5 ? <FaStar onClick={()=>{setRating(5)}} onMouseEnter={()=>{setHover(5)}} onMouseLeave={() => setHover(0)} className='cursor-pointer text-gold' /> : <FaRegStar onClick={()=>{setRating(5)}} onMouseEnter={()=>{setHover(5)}} className='cursor-pointer text-gold' />}
                     </div>
-                <input type="text" value={name} onChange={(e)=>{setName(e.target.value)}} placeholder='name(optional)' className='w-full border border-accent p-2 rounded-2xl' />
+                <input type="text" value={name} onChange={(e)=>{setName(e.target.value)}} placeholder='name' className='w-full border border-accent p-2 rounded-2xl' />
                 <textarea type="text" value={message} onChange={(e)=>{setMessage(e.target.value)}} placeholder='Enter your review here...(optional)' className='w-full h-[100px] border border-accent p-2 rounded-2xl' />
                 <div className='w-full flex justify-center gap-4'>
                     <button onClick={()=>{
@@ -145,6 +171,30 @@ export default function RatingsAndReviews(props) {
                 </div>
                 </div>
                 
+            </div>
+        </div>}
+        { showAllReviews && <div className='w-full h-full fixed top-0 right-0 bg-black/60 flex items-center justify-center py-10'>
+            <div className='w-[800px] h-full relative'>
+                <div className='w-[800px] h-full bg-primary rounded-2xl p-6 flex flex-col overflow-y-scroll'>
+                  {(reviews.map((item, index)=>{
+                        return (
+                            <div key={index} className='w-full flex flex-col border-1 rounded-2xl p-4 my-2'>
+                                <div className='w-full flex items-center '>
+                                    <h1 className='text-xl font-semibold mr-2'>{item.name}</h1>
+                                    {item.stars >= 1 ? <FaStar className='text-gold' /> : <FaRegStar className='text-gold' />}
+                                    {item.stars >= 2 ? <FaStar className='text-gold' /> : <FaRegStar className='text-gold' />}
+                                    {item.stars >= 3 ? <FaStar className='text-gold' /> : <FaRegStar className='text-gold' />}
+                                    {item.stars >= 4 ? <FaStar className='text-gold' /> : <FaRegStar className='text-gold' />}
+                                    {item.stars >= 5 ? <FaStar className='text-gold' /> : <FaRegStar className='text-gold' />}
+                                    <p className='w-full text-right'>{item.date.split('T')[0]}</p>
+                                </div>
+                                <h1 className='w-full text-lg'>{item.message}</h1>
+                            </div>
+                            
+                        )
+                    }))}
+                    <button onClick={()=>{setShowAllReviews(false)}} className='w-[30px] h-[30px] bg-red-600 rounded-full absolute text-white text-[17px] top-[-32px] right-[-24px] cursor-pointer'>x</button>                   
+                </div>
             </div>
         </div>}
     </div>
