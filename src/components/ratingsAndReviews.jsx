@@ -74,7 +74,7 @@ export default function RatingsAndReviews(props) {
             
             return
         }catch(error){
-            toast.error("Could not submit review. Please check whether you have purchased this product.")
+            toast.error("Please check whether you have purchased this product or already submitted a review.")
             console.log("Error submitting review: ")
             console.log(error)
             return
