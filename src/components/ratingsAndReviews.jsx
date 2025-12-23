@@ -74,7 +74,7 @@ export default function RatingsAndReviews(props) {
             
             return
         }catch(error){
-            toast.error("Could not submit review. Please check whether you have purchased this product.")
+            toast.error("Please check whether you have purchased this product or already submitted a review.")
             console.log("Error submitting review: ")
             console.log(error)
             return
@@ -93,7 +93,7 @@ export default function RatingsAndReviews(props) {
                         {ratings.stars >= 4 ? <FaStar className='text-gold' /> : <FaRegStar className='text-gold' />}
                         {ratings.stars >= 5 ? <FaStar className='text-gold' /> : <FaRegStar className='text-gold' />}
                     </div>
-                    <h1 className='w-full text-center text-[40px] mt-1'>{ratings.stars}/5</h1>
+                    <h1 className='w-full text-center text-[40px] mt-1'>{ratings.averageStars}/5</h1>
                     <h1 className='w-full text-center text-[20px] m-1'>{ratings.noOfRatings} Ratings</h1>
                 </div>
                 <div className='w-[50%] flex flex-col'>
