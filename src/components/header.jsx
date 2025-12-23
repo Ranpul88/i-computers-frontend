@@ -15,7 +15,7 @@ export default function Header() {
         <header className="w-full h-[100px] bg-accent flex items-center relative">
             <LuListCollapse onClick={()=>{setSideBarOpen(true)}} className="text-white my-auto text-2xl mx-6 lg:hidden"/>
             <img src="/logo.png" alt="logo" className="h-[65px] lg:h-full" />
-            <div className="w-full h-full hidden lg:flex text-xl text-primary justify-center items-center contacts gap-[30px]">
+            <div className="w-full h-full hidden lg:flex text-2xl text-primary justify-center items-center contacts gap-[30px]">
                 <Link to="/" className="flex flex-col items-center gap-1 pt-2">Home<FaChevronUp className={`text-sm transition duration-500 ${page == "/" ? "opacity-100" : "opacity-0"}`} /></Link>
                 <Link to="/products" className="flex flex-col items-center gap-1 pt-2">products<FaChevronUp className={`text-sm transition duration-500 ${page.startsWith("/products") ? "opacity-100" : "opacity-0"}`} /></Link>
                 <Link to="/about" className="flex flex-col items-center gap-1 pt-2">About<FaChevronUp className={`text-sm transition duration-500 ${page == "/about" ? "opacity-100" : "opacity-0"}`} /></Link>
@@ -50,7 +50,7 @@ export default function Header() {
                     <div className="w-full flex bg-accent p-6">
                         <UserData />
                     </div>
-                <div className="w-full h-full flex flex-col text-xl text-secondary pl-6 pt-2 gap-3">
+                <div className="w-full h-full flex flex-col text-xl text-secondary pl-6 pt-4 gap-3">
                     <Link
                     to="/"
                     className="flex flex-row items-center"

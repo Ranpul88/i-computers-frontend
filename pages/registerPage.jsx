@@ -64,52 +64,54 @@ export default function LoginPage(){
     }
 
     return(
-        <div className="w-full h-screen bg-[url('bg.jpg')] bg-center bg-cover bg-no-repeat flex">
+        <div className="w-full h-screen bg-[url('/bg.jpg')] bg-center bg-cover bg-no-repeat flex">
            
-            <div className="w-[50%] h-full flex justify-center items-center flex-col p-[50px]">
+            <div className="hidden w-[50%] h-full lg:flex justify-center items-center flex-col p-[50px]">
                 
-                <img src="/logo.png" alt="logo" className="w-[200px] h-[200px] mb-[20px] object-cover" />
+                <img src="/logo.png" alt="logo" className="w-[200px] h-[200px] mb-[10px] object-cover" />
                 
                 <h1 className="text-[50px] text-gold text-shadow-accent text-shadow-2xs text-center font-bold">Plug In. Power Up. Play Hard</h1>
                 
-                <p className="text-[30px] text-white italic">Your Ultimate Destination For Gaming Gear</p>
+                <p className="text-[30px] text-center text-white italic">Your Ultimate Destination For Gaming Gear</p>
             
             </div>
 
-            <div className="w-[50%] h-full flex justify-center items-center">
+            <div className="w-full lg:w-[50%] h-full flex justify-center items-center">
                 
-                <div className="w-[450px] h-[600px] backdrop-blur-lg shadow-2xl rounded-2xl flex flex-col justify-center items-center p-[30px]">
+                <div className="w-[350px] h-[550px] lg:w-[450px] lg:h-[600px] backdrop-blur-lg shadow-2xl rounded-2xl flex flex-col justify-center items-center p-[30px]">
 
-                    <h1 className="text-[30px] font-bold mb-[20px] text-white ">Register</h1>
+                    <img src="/logo.png" alt="logo" className="lg:hidden w-[80px] h-[80px] mb-[5px] object-cover" />
+
+                    <h1 className="text-[30px] lg:text-[40px] font-bold mb-[20px] text-white ">Register</h1>
 
                     <input onChange={(e)=>{
                         setFirstName(e.target.value)
                     }} 
-                    type="text" placeholder="Your first name" className="w-full h-[50px] mb-[10px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
+                    type="text" placeholder="Your first name" className="w-full h-[40px] lg:h-[50px] mb-[10px] rounded-lg border border-accent p-[10px] text-[15px] lg:text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
 
                     <input onChange={(e)=>{
                         setLastName(e.target.value)
                     }} 
-                    type="text" placeholder="Your last name" className="w-full h-[50px] mb-[10px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
+                    type="text" placeholder="Your last name" className="w-full h-[40px] lg:h-[50px] mb-[10px] rounded-lg border border-accent p-[10px] text-[15px] lg:text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
                    
                     <input onChange={(e)=>{
                         setEmail(e.target.value)
                     }} 
-                    type="email" placeholder="Your email" className="w-full h-[50px] mb-[10px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
+                    type="email" placeholder="Your email" className="w-full h-[40px] lg:h-[50px] mb-[10px] rounded-lg border border-accent p-[10px] text-[15px] lg:text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
                    
                     <input onChange={(e)=>{
                         setPassword(e.target.value)
                     }} 
-                    type="password" placeholder="Your pasword" className="w-full h-[50px] mb-[10px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
+                    type="password" placeholder="Your pasword" className="w-full h-[40px] lg:h-[50px] mb-[10px] rounded-lg border border-accent p-[10px] text-[15px] lg:text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
                     
                     <input onChange={(e)=>{
                         setConfirmedPassword(e.target.value)
                     }} 
-                    type="password" placeholder="confirm your password" className="w-full h-[50px] mb-[25px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
+                    type="password" placeholder="confirm your password" className="w-full h-[40px] lg:h-[50px] mb-[10px] rounded-lg border border-accent p-[10px] text-[15px] lg:text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
                     
-                    <button onClick={register} className="w-full h-[50px] bg-accent text-white font-bold text-[20px] rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-white cursor-pointer">Register</button>
+                    <button onClick={register} className="w-full h-[35px] lg:h-[50px] bg-accent text-white font-bold text-[15px] lg:text-[20px] mb-1 rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-white cursor-pointer">Register</button>
                     
-                    <p className="text-white">Already have an account? <Link to="/login" className="text-gold italic">Login here</Link></p>
+                    <p className="w-full text-[12px] lg:text-[15px] text-white text-right">Already have an account? <Link to="/login" className="text-gold italic">Login here</Link></p>
                 
                 </div>
             

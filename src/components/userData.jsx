@@ -47,9 +47,9 @@ export default function UserData(){
                     <option className="bg-accent" value={"my-orders"}>My Orders</option>
                 </select>
             </div>
-                : <div className="w-[150px] flex flex-row text-white">
-                    <Link to="/login" className="mx-2 px-3 py-1 lg:px-4 lg:py-2 text-sm lg:text-base bg-white text-accent rounded-full">Login</Link>
-                    <Link to="/register" className="mx-2 px-3 py-1 lg:px-4 lg:py-2 text-sm lg:text-base bg-white text-accent rounded-full">Register</Link>
+                : <div className="w-full flex flex-row items-center justify-center text-white gap-3">
+                    <Link to="/login" className="h-[40px] w-[80px] flex items-center justify-center bg-white text-accent rounded-full">Login</Link>
+                    <Link to="/register" className="h-[40px] w-[90px] flex items-center justify-center bg-white text-accent rounded-full">Register</Link>
                 </div>
             }
         </>
