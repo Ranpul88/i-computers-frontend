@@ -73,7 +73,7 @@ export default function AdminReviewsPage() {
                   <td className="py-3 px-4">{item.name}</td>
                   <td className="py-3 px-4">{item.stars}</td>
                   <td className="py-3 px-4">{item.message}</td>
-                  <td className="py-3 px-4">{item.date}</td>
+                  <td className="py-3 px-4">{item.date.split("T")[0]}</td>
                   <td className="py-3 px-4">
                     <button onClick={()=>{deleteReview(item)}} disabled={!setLoaded} className="px-3 py-1 bg-red-600 text-primary rounded-lg hover:bg-red-700 cursor-pointer">Delete
                     </button>

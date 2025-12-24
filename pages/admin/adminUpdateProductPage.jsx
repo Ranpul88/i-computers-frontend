@@ -123,7 +123,6 @@ export default function AdminUpdateProductsPage() {
             <div className="my-[10px] w-full">
               <label>Alternative Names</label>
               <input type="text" value={altNames} onChange={(e)=>{setAltNames(e.target.value)}} className="w-full h-[40px] rounded-2xl border border-accent focus:outline-none focus:ring-2 focus:ring-accent shadow-2xl px-[10px]" />
-              <p className="text-sm text-gray-500 w-full text-right">Separate multiple names with commas</p>
             </div>
 
             <div className="my-[10px] w-full">
