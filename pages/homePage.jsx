@@ -8,6 +8,7 @@ import OrdersPage from "./ordersPage";
 import HomeContent from "./homeContent";
 import ContactPage from "./contactPage";
 import AboutPage from "./aboutPage";
+import NotFoundPage from "./notFoundPage";
 
 export default function HomePage(){
     return(
@@ -24,7 +25,7 @@ export default function HomePage(){
                     <Route path="/cart" element={<CartPage />} />
                     <Route path="checkout" element={<CheckoutPage />} />
                     <Route path="/orders" element={<OrdersPage />} />
-                    <Route path="/*" element={<h1>404 Page Not Found</h1>} />
+                    <Route path="/*" element={<NotFoundPage />} />
                 </Routes>
             </div>
         </div>
