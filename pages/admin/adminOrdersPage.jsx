@@ -26,7 +26,7 @@ export default function AdminOrdersPage() {
   return (
     <div className="w-full min-h-screen flex justify-center bg-primary text-secondary p-10 relative">
       <div className="w-full max-w-7xl bg-white rounded-2xl shadow-xl p-6 overflow-x-auto">
-        <h2 className="text-2xl font-semibold mb-6 text-accent border-b pb-3">Products List</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-accent border-b pb-3">Orders List</h2>
 
         {loaded ? <table className="w-full border-collapse text-sm">
           <thead className="bg-accent text-white sticky top-0">

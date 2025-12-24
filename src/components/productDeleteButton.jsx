@@ -38,7 +38,7 @@ export default function ProdutctDeleteButton(props) {
         </button>
         {isMessageOpen && <div className='w-[100vw] h-screen fixed top-0 left-0 bg-black/55 flex justify-center items-center'>
             <div className='w-[500px] h-[300px] bg-primary rounded-2xl relative flex flex-col items-center justify-center p-10 shadow-xl'>
-                <button onClick={()=>{setIsMessageOpen(false)}} className='w-[35px] h-[35px] bg-red-600 rounded-full text-white text-xl cursor-pointer hover:bg-red-800 absolute right-[-28px] top-[-28px]'>
+                <button onClick={()=>{setIsMessageOpen(false)}} className='w-[35px] h-[35px] bg-red-600 rounded-full pb-1 text-white text-xl cursor-pointer hover:bg-red-800 absolute right-[-28px] top-[-28px]'>
                     x
                 </button>
                 <h1 className='text-2xl mb-6 text-center'>Are you sure you want to delete product {productID}?</h1>
