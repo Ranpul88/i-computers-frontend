@@ -16,7 +16,7 @@ export default function HomePage(){
         <div className="flex flex-col min-h-screen">
             <Header />
             
-            <div className="w-full min-h-[calc(100%-100px)]">
+            <div className="w-full flex flex-1 h-[calc(100%-100px)]">
                 <Routes>
                     <Route path="/" element={<HomeContent />}/>
                     <Route path="/products" element={<ProductsPage />} />
