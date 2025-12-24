@@ -20,20 +20,23 @@ export default function AdminUpdateProductsPage() {
   const [model, setModel] = useState(location.state.model)
   const [stock, setStock] = useState(location.state.stock)
   const [isAvailable, setIsAvailable] = useState(location.state.isAvailable)
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   if(!location.state){
-    window.location.href("/admin/products")
+    navigate("/admin/products")
   }
 
   async function updateProduct(){
 
-    
+    setLoading(true)
+
     const token = localStorage.getItem("token")
     
     if(token == null){
       toast.error("You must logged in as an admin to add products.")
       navigate("/login")
+      setLoading(false)
       return
     }
 
@@ -49,6 +52,7 @@ export default function AdminUpdateProductsPage() {
         toast.error("Error uploading images, Please try again.")
         console.log("Error uploading images: ")
         console.log(err)
+        setLoading(false)
         return
       })
     
@@ -58,6 +62,7 @@ export default function AdminUpdateProductsPage() {
 
     if(productID == "" || name == "" || description == "" || category == "" || brand == "" || model == ""){
       toast.error("Please fill in all required fields.")
+      setLoading(false)
       return
     }
 
@@ -85,12 +90,14 @@ export default function AdminUpdateProductsPage() {
       })
 
       toast.success("Product updated succefully.")
+      setLoading(false)
       navigate("/admin/products")
 
     } catch (err) {
       toast.error("Error updating product. Please try again.")
       console.log("Error updating product: ")
       console.log(err)
+      setLoading(false)
     }
 
   }
@@ -184,7 +191,7 @@ export default function AdminUpdateProductsPage() {
             </div>
 
             <Link to="/admin/products" className="w-[49%] text-accent font-bold rounded-2xl flex justify-center  items-center hover:bg-red-700 hover:text-white border-[2px] mt-[20px]">Cancel</Link>
-            <button onClick={updateProduct} className="w-[49%] h-[50px] bg-accent text-white font-bold rounded-2xl hover:bg-transparent hover:text-accent border border-accent mt-[20px]">Update Product</button>
+            <button onClick={updateProduct} disabled={loading} className="w-[49%] h-[50px] bg-accent text-white font-bold rounded-2xl hover:bg-transparent hover:text-accent border border-accent mt-[20px]">Update Product</button>
 
           </div>
         </div>

@@ -100,9 +100,9 @@ export default function LoginPage(){
                     type="password" placeholder="Your pasword" className="w-full h-[40px] lg:h-[50px] rounded-lg border border-accent p-[10px] text-[15px] lg:text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
                     
                     <p className="text-white w-full text-[12px] lg:text-[15px] text-right mb-[20px]">Forgot your password? <Link to="/forgot-password" className="text-gold italic">Reset it here</Link></p>
-                    <button onClick={login} className="w-full h-[35px] lg:h-[50px] bg-accent text-white font-bold text-[15px] lg:text-[20px] mb-[10px] rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-white cursor-pointer">Login</button>
+                    <button onClick={login} disabled={isLoading} className="w-full h-[35px] lg:h-[50px] bg-accent text-white font-bold text-[15px] lg:text-[20px] mb-[10px] rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-white cursor-pointer">Login</button>
 
-                    <button onClick={googleLogin} className="w-full h-[35px] lg:h-[50px] bg-accent text-white font-bold text-[15px] lg:text-[20px] rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-white cursor-pointer">Login with <GrGoogle className="inline ml-2 mb-1" /></button>
+                    <button onClick={googleLogin} disabled={isLoading} className="w-full h-[35px] lg:h-[50px] bg-accent text-white font-bold text-[15px] lg:text-[20px] rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-white cursor-pointer">Login with <GrGoogle className="inline ml-2 mb-1" /></button>
                     
                     <p className="w-full text-[12px] lg:text-[15px] text-white text-right">Don't have an account? <Link to="/register" className="text-gold italic">Register here</Link></p>
                 

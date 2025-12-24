@@ -109,7 +109,7 @@ export default function LoginPage(){
                     }} 
                     type="password" placeholder="confirm your password" className="w-full h-[40px] lg:h-[50px] mb-[10px] rounded-lg border border-accent p-[10px] text-[15px] lg:text-[20px] focus:outline-none focus:ring-2 focus:ring-gold" />
                     
-                    <button onClick={register} className="w-full h-[35px] lg:h-[50px] bg-accent text-white font-bold text-[15px] lg:text-[20px] mb-1 rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-white cursor-pointer">Register</button>
+                    <button onClick={register} disabled={isLoading} className="w-full h-[35px] lg:h-[50px] bg-accent text-white font-bold text-[15px] lg:text-[20px] mb-1 rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-white cursor-pointer">Register</button>
                     
                     <p className="w-full text-[12px] lg:text-[15px] text-white text-right">Already have an account? <Link to="/login" className="text-gold italic">Login here</Link></p>
                 
