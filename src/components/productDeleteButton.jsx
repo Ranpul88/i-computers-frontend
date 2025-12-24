@@ -33,7 +33,7 @@ export default function ProdutctDeleteButton(props) {
 
   return (
     <>
-        <button onClick={()=>{setIsMessageOpen(true)}} className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 trainsition'>
+        <button onClick={()=>{setIsMessageOpen(true)}} className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 trainsition cursor-pointer'>
             Delete
         </button>
         {isMessageOpen && <div className='w-[100vw] h-screen fixed top-0 left-0 bg-black/55 flex justify-center items-center'>

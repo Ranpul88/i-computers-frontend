@@ -74,7 +74,7 @@ export default function AdminProductsPage() {
                   <td className="py-3 px-4 flex gap-2">
                     {/* <Link to="/admin/update-products" state={item}  className="w[70px] px-3 py-2 rounded-md bg-accent/20 text-accent text-center" >Edit</Link> */}
 
-                    <button className="w[70px] px-3 py-2 rounded-md bg-accent/20 text-accent text-center hover:bg-accent/30" onClick={()=>{
+                    <button className="px-3 py-2 rounded-md bg-accent/20 text-accent text-center hover:bg-accent/30 cursor-pointer" onClick={()=>{
                       navigate("/admin/update-product", {state: item})
                     }}>
                         Edit
