@@ -4,6 +4,8 @@ import { LuBoxes } from "react-icons/lu"
 import toast from "react-hot-toast"
 import axios from "axios"
 import uploadFile from "../../src/utils/mediaUpload"
+import Loader from "../../src/components/loader"
+import { s } from "framer-motion/client"
 
 export default function AdminAddProductsPage() {
 
@@ -14,19 +16,23 @@ export default function AdminAddProductsPage() {
   const [price, setPrice] = useState(0)
   const [labelledPrice, setLabelledPrice] = useState(0)
   const [files, setFiles] = useState([])
-  const [category, setCategory] = useState("")
+  const [category, setCategory] = useState("CPU")
   const [brand, setBrand] = useState("")
   const [model, setModel] = useState("")
   const [stock, setStock] = useState(0)
   const [isAvailable, setIsAvailable] = useState(false)
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   async function addProduct(){
+
+    setLoading(true)
     const token = localStorage.getItem("token")
     
     if(token == null){
       toast.error("You must logged in as an admin to add products.")
       navigate("/login")
+      setLoading(false)
       return
     }
 
@@ -42,11 +48,13 @@ export default function AdminAddProductsPage() {
         toast.error("Error uploading images, Please try again.")
         console.log("Error uploading images: ")
         console.log(err)
+        setLoading(false)
         return
       })
     
     if(productID == "" || name == "" || description == "" || category == "" || brand == "" || model == ""){
       toast.error("Please fill in all required fields.")
+      setLoading(false)
       return
     }
 
@@ -75,18 +83,20 @@ export default function AdminAddProductsPage() {
 
       toast.success("Product added succefully.")
       navigate("/admin/products")
+      setLoading(false)
 
     } catch (err) {
       toast.error("Error adding product. Please try again.")
       console.log("Error adding product: ")
       console.log(err)
+      setLoading(false)
     }
 
   }
 
   return (
     <div className='w-full flex justify-center p-[50px]'>
-        <div className="w-[800px] bg-accent/80 rounded-2xl p-[40px] shadow-2xl">
+        {loading ? <Loader /> : <div className="w-[800px] bg-accent/80 rounded-2xl p-[40px] shadow-2xl">
 
           <h1 className="w-full text-2xl font-bold mb-[30px] ml-[10px] text-primary flex items-center gap-[5px]"><LuBoxes /> Add New Product </h1>
 
@@ -174,10 +184,10 @@ export default function AdminAddProductsPage() {
             </div>
 
             <Link to="/admin/products" className="w-[49%] text-accent font-bold rounded-2xl flex justify-center  items-center hover:bg-red-700 hover:text-white border-[2px] mt-[20px]">Cancel</Link>
-            <button onClick={addProduct} className="w-[49%] h-[50px] bg-accent text-white font-bold rounded-2xl hover:bg-transparent hover:text-accent border border-accent mt-[20px]">Add Product</button>
+            <button onClick={addProduct} disabled={loading} className="w-[49%] h-[50px] bg-accent text-white font-bold rounded-2xl hover:bg-transparent hover:text-accent border border-accent mt-[20px]">Add Product</button>
 
           </div>
-        </div>
+        </div>}
     </div>
   )
 }
