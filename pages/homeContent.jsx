@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function HomeContent() {
   return (
-    <div className="w-full h-[calc(100vh-100px)]">
+    <div className="w-full h-full">
       {/* Hero Section */}
       <div className="relative w-full h-[80vh] md:h-[90vh]">
         <img

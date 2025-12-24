@@ -7,13 +7,13 @@ import CheckoutPage from "./checkout";
 import OrdersPage from "./ordersPage";
 import HomeContent from "./homeContent";
 import ContactPage from "./contactPage";
-import Footer from "../src/components/footer";
 import NotFoundPage from "./notFoundPage";
 import AboutPage from "./aboutPage";
+import Footer from "../src/components/footer";
 
 export default function HomePage(){
     return(
-        <div className="w-full h-full overflow-y-scroll">
+        <div className="flex flex-col min-h-screen">
             <Header />
             
             <div className="w-full min-h-[calc(100%-100px)]">
@@ -28,9 +28,9 @@ export default function HomePage(){
                     <Route path="/orders" element={<OrdersPage />} />
                     <Route path="/*" element={<NotFoundPage />} />
                 </Routes>
-            </div>
-
-            <Footer />
+            </div> 
+            <Footer />        
         </div>
+        
     )
 }

@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <div className='w-full h-[calc(100vh-100px)]'>
+    <div className='w-full h-full'>
         <div className='w-full h-full flex flex-col'>
             <div className="w-full h-[100px] flex items-center my-4">
                 <h1 className="w-full text-[30px] lg:text-[40px] font-bold text-center">About US</h1> 

@@ -42,7 +42,7 @@ export default function ContactPage() {
   }
 
   return (
-      <div className="w-full h-[calc(100vh-100px)] flex flex-col items-center">
+      <div className="w-full h-full flex flex-col items-center p-4">
        <div className="w-full h-[50px] lg:h-[100px] flex justify-center p-4">
             <h1 className="text-[30px] lg:text-[40px] font-bold">Contact US</h1>
         </div>

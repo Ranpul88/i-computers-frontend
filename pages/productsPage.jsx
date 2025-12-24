@@ -18,9 +18,9 @@ export default function ProductsPage() {
     }
   }, [])
   return (
-    <div className='w-full h-[calc(100vh-100px)]'>
+    <div className='w-full h-full'>
         {!loaded ? <Loader /> : 
-            <div className='w-full flex justify-center flex-wrap'>
+            <div className='w-full flex justify-center flex-wrap pb-4'>
               <div className='w-full h-[80px] lg:h-[100px] bg-primary sticky top-0 p-4 flex items-center justify-center shadow-md z-10 mb-10'>
                 <input type="text" placeholder='Search products...' className='w-1/2 h-[35px] lg:h-[50px] px-4 py-2 border border-secondary/30 rounded-lg outline-none' onChange={async (e)=>{
                   if(e.target.value == ""){
