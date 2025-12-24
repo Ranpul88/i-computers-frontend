@@ -56,7 +56,7 @@ export default function ProductOverview() {
                     { product.altNames && product.altNames.length > 0 && 
                         <h3 className="text-lg text-secondary/80">{product.altNames.join(" | ")}</h3>
                     }
-                    <p className="h-28 lg:h-32 text-md text-justify text-secondary/90 overflow-y-auto">{product.description}</p>
+                    <p className="h-28 lg:h-32 text-md text-justify text-secondary/90">{product.description}</p>
                     <div className="w-full ">
                         {
                             product.labelledPrice > product.price && 
