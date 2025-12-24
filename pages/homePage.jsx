@@ -7,8 +7,7 @@ import CheckoutPage from "./checkout";
 import OrdersPage from "./ordersPage";
 import HomeContent from "./homeContent";
 import ContactPage from "./contactPage";
-import AboutPage from "./aboutPage";
-import NotFoundPage from "./notFoundPage";
+import Footer from "../src/components/footer";
 
 export default function HomePage(){
     return(
@@ -28,6 +27,8 @@ export default function HomePage(){
                     <Route path="/*" element={<NotFoundPage />} />
                 </Routes>
             </div>
+
+            <Footer />
         </div>
     )
 }
