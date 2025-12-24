@@ -140,7 +140,7 @@ export default function CheckoutPage() {
             </div>
         </div>
         <div className='w-full lg:w-[50%] h-[150px] rounded-xl overflow-hidden shadow-2xl my-1 flex justify-between items-center'>
-            <button onClick={submitOrder} className='self-center ml-4 px-6 py-3 rounded bg-accent text-white hover:bg-accent/90 transition'>Order Now</button>
+            <button onClick={submitOrder} className='self-center ml-4 px-6 py-3 rounded bg-accent text-white cusror-pointer hover:bg-accent/90 transition'>Order Now</button>
             <span className='pr-4 text-xl font-bold min-w-[150px] text-right'>
                 LKR. {getCartTotal().toFixed(2)}
             </span>
