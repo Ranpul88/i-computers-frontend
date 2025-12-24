@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function NotFoundPage() {
   return (
     <div className="w-full h-[calc(100vh-100px)] flex justify-center items-center gap-4 p-4">

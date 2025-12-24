@@ -8,6 +8,7 @@ import OrdersPage from "./ordersPage";
 import HomeContent from "./homeContent";
 import ContactPage from "./contactPage";
 import Footer from "../src/components/footer";
+import NotFoundPage from "./notFoundPage";
 
 export default function HomePage(){
     return(
