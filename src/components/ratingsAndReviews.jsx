@@ -143,12 +143,12 @@ export default function RatingsAndReviews(props) {
             </div>}
         </div>
         { reviewFormVisible && <div className='w-full h-full fixed top-0 right-0 bg-black/60 flex items-center justify-center'>
-            <div className='w-[400px] h-[450px] bg-primary rounded-2xl p-6 flex flex-col '>
-                <h1 className='text-2xl font-semibold'>Submit Review</h1>
+            <div className='w-[350px] h-[400px] lg:w-[400px] lg:h-[450px] bg-primary rounded-2xl p-6 flex flex-col '>
+                <h1 className='text-xl lg:text-2xl font-semibold'>Submit Review</h1>
                 <p className='text-red-600 text-sm my-2'>You can submit a review only if you have purchased this product.</p>
                 <div className='w-full h-full p-2 gap-4 flex flex-col justify-center'>
                     
-                    <div className='w-full flex flex-row text-2xl gap-1 mx-1'>
+                    <div className='w-full flex flex-row text-xl lg:text-2xl gap-1 mx-1'>
                         {rating >= 1 || hover >= 1 ? <FaStar onClick={()=>{setRating(1)}} onMouseEnter={()=>{setHover(1)}} onMouseLeave={() => setHover(0)} className='cursor-pointer text-gold' /> : <FaRegStar onClick={()=>{setRating(1)}} onMouseEnter={()=>{setHover(1)}} className='cursor-pointer text-gold' />}
                         {rating >= 2 || hover >= 2 ? <FaStar onClick={()=>{setRating(2)}} onMouseEnter={()=>{setHover(2)}} onMouseLeave={() => setHover(0)} className='cursor-pointer text-gold' /> : <FaRegStar onClick={()=>{setRating(2)}} onMouseEnter={()=>{setHover(2)}} className='cursor-pointer text-gold' />}
                         {rating >= 3 || hover >= 3 ? <FaStar onClick={()=>{setRating(3)}} onMouseEnter={()=>{setHover(3)}} onMouseLeave={() => setHover(0)} className='cursor-pointer text-gold' /> : <FaRegStar onClick={()=>{setRating(3)}} onMouseEnter={()=>{setHover(3)}} className='cursor-pointer text-gold' />}
@@ -156,7 +156,7 @@ export default function RatingsAndReviews(props) {
                         {rating >= 5 || hover >= 5 ? <FaStar onClick={()=>{setRating(5)}} onMouseEnter={()=>{setHover(5)}} onMouseLeave={() => setHover(0)} className='cursor-pointer text-gold' /> : <FaRegStar onClick={()=>{setRating(5)}} onMouseEnter={()=>{setHover(5)}} className='cursor-pointer text-gold' />}
                     </div>
                 <input type="text" value={name} onChange={(e)=>{setName(e.target.value)}} placeholder='name' className='w-full border border-accent p-2 rounded-2xl' />
-                <textarea type="text" value={message} onChange={(e)=>{setMessage(e.target.value)}} placeholder='Enter your review here...(optional)' className='w-full h-[100px] border border-accent p-2 rounded-2xl' />
+                <textarea type="text" value={message} onChange={(e)=>{setMessage(e.target.value)}} placeholder='Enter your review here...(optional)' className='w-full h-[60px] lg:h-[100px] border border-accent p-2 rounded-2xl' />
                 <div className='w-full flex justify-center gap-4'>
                     <button onClick={()=>{
                         setRating(0)
@@ -166,16 +166,16 @@ export default function RatingsAndReviews(props) {
                         setReviewFormVisible(false)   
                     }} 
                         
-                        className="w-[40%] text-accent font-bold rounded-xl flex justify-center  items-center hover:bg-red-700 hover:text-white border-[2px] cursor-pointer">Cancel</button>
-                    <button onClick={submitReview} className="w-[40%] h-[40px] bg-accent text-white font-bold rounded-xl hover:bg-transparent hover:text-accent border border-accent cursor-pointer">Submit Review</button>
+                    className="w-[45%] lg:w-[40%] text-accent lg:font-bold rounded-xl flex justify-center  items-center hover:bg-red-700 hover:text-white border-[2px] cursor-pointer">Cancel</button>
+                    <button onClick={submitReview} className="w-[45%] lg:w-[40%] h-[40px] bg-accent text-white lg:font-bold rounded-xl hover:bg-transparent hover:text-accent border border-accent cursor-pointer">Submit Review</button>
                 </div>
                 </div>
                 
             </div>
         </div>}
         { showAllReviews && <div className='w-full h-full fixed top-0 right-0 bg-black/60 flex items-center justify-center py-10'>
-            <div className='w-[800px] h-full relative'>
-                <div className='w-[800px] h-full bg-primary rounded-2xl p-6 flex flex-col overflow-y-scroll'>
+            <div className='w-[350px] h-[600px] lg:w-[800px] lg:h-full relative'>
+                <div className='w-[350px] h-[600px] lg:w-[800px] lg:h-full bg-primary rounded-2xl p-6 flex flex-col overflow-y-scroll'>
                   {(reviews.map((item, index)=>{
                         return (
                             <div key={index} className='w-full flex flex-col border-1 rounded-2xl p-4 my-2'>
