@@ -44,7 +44,7 @@ export default function ProductOverview() {
 
         {
             status == "success" && 
-            <div className="w-full h-[calc(100vh-100px)] flex flex-col lg:flex-row">
+            <div className="w-full h-full flex flex-col lg:flex-row">
                 <h1 className="lg:hidden text-3xl lg:text-4xl font-semibold mt-2 ml-2 sticky top-0 bg-white">{product.name}</h1>
                 <div className="lg:w-1/2 lg:h-full flex justify-center items-center">
                     <ImageSlidder images={product.images} />
